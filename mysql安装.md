@@ -2,7 +2,7 @@
 ## 在 Linux 下安装 mysql
 1. 在 vim .vimrc 中删除第18行（完成后在vim编辑时可以复制/粘贴文本）；
 2. 使用 sudo vim /etc/apt/sources.lis 命令将源粘贴到源列表中；
-   源附录：
+   ###### 源附录：
    deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
    deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
    deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
