@@ -2,7 +2,7 @@
 markdown
 ### 技术文档
 * [mysql的安装](mysql的安装.md)
-* [atmo](atmo.md)
+* [atmo](Atmo.md)
 
 ### 每天计划
 * [2017年06月16日](2017.6.16.md)
