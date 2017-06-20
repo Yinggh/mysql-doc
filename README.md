@@ -3,7 +3,7 @@ markdown
 
 ### 技术文档
 
-* [mysql的安装](mysql的安装.md)
+* [mysql的安装](mysql安装.md)
 * [atmo](Atmo.md)
 * [cgi](cji.md)
 
