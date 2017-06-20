@@ -9,12 +9,14 @@ int cgiMain()
 
 	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
 
-	char name[32] = "\0";
-	char age[16] = "\0";
-	char stuId[32] = "\0";
+	char sno[9] = "\0";
+	char sage[16] = "\0";
+	char sname[20] = "\0";
+	char ssex[32] = "\0";
+	char sdept[32] = "\0";
 	int status = 0;
 
-	status = cgiFormString("sname",  name, 32);
+	status = cgiFormString("sname", sname, 20);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get sname error!\n");
@@ -28,7 +30,7 @@ int cgiMain()
 		return 1;
 	}
 
-	status = cgiFormString("sno",  sno, 32);
+	status = cgiFormString("sno",  sno, 9);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get sno error!\n");
@@ -40,7 +42,7 @@ int cgiMain()
 		fprintf(cgiOut, "get ssex error!\n");
 		return 1;
 	}
-	status = cgiFormString("sdept",  sno, 32);
+	status = cgiFormString("sdept",  sdept, 32);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get sdept error!\n");
@@ -72,7 +74,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table information(sno char(9) peimary key,sname char(20) unque,ssex char(2),sage smallint,sdept char(20))");
+	strcpy(sql, "create table information(sno char(9) peimary key,sname char(20) unque,ssex char(2),sage smallint,sdept char(20)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)
@@ -85,7 +87,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into stu values(%d, '%s', %d '%s', '%s')", sno, sname, atoi(sage),ssex,sdept;
+	sprintf(sql, "insert into stu values(%d, '%s', %d '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
