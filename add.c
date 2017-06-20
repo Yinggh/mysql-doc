@@ -12,8 +12,8 @@ int cgiMain()
 	char sno[9] = "\0";
 	char sage[16] = "\0";
 	char sname[20] = "\0";
-	char ssex[32] = "\0";
-	char sdept[32] = "\0";
+  char ssex[2] = "\0";
+	char sdept[20] = "\0";
 	int status = 0;
 
 	status = cgiFormString("sname", sname, 20);
@@ -87,7 +87,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into stu values('%s', '%s', %d, '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
+	sprintf(sql, "insert into information values('%s', '%s', %d, '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
