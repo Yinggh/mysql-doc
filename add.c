@@ -87,7 +87,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into stu values(%d, '%s', %d '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
+	sprintf(sql, "insert into stu values('%s', '%s', %d, '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
