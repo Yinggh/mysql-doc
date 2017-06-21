@@ -10,42 +10,28 @@ int cgiMain()
 	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
 
 	char sno[9] = "\0";
-	char sage[16] = "\0";
-	char sname[20] = "\0";
-  char ssex[2] = "\0";
-	char sdept[20] = "\0";
+	char cno[9] = "\0";
+	char score[6] = "\0";
 	int status = 0;
 
-	status = cgiFormString("sname", sname, 20);
+  status = cgiFormString("sno",sno, 9);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sname error!\n");
+		fprintf(cgiOut, "get cno error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sage",  sage, 16);
+  status = cgiFormString("cno",  cno, 9);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sage error!\n");
+		fprintf(cgiOut, "get cno error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sno",  sno, 9);
+	status = cgiFormString("score",  score, 9);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get sno error!\n");
-		return 1;
-	}
-	status = cgiFormString("ssex",  ssex, 32);
-	if (status != cgiFormSuccess)
-	{
-		fprintf(cgiOut, "get ssex error!\n");
-		return 1;
-	}
-	status = cgiFormString("sdept",  sdept, 32);
-	if (status != cgiFormSuccess)
-	{
-		fprintf(cgiOut, "get sdept error!\n");
 		return 1;
 	}
 
@@ -74,7 +60,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table information(sno char(9) peimary key,sname char(20) unque,ssex char(2),sage smallint,sdept char(20)");
+	strcpy(sql, "create table score(cno char(9),cno char(9),score smallint,primary key(sno,cno),foreign key(sno)peferences information(sno),foreigy key(cno)references school(cno)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)
@@ -87,7 +73,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into information values('%s', '%s', %d, '%s', '%s')", sno, sname, atoi(sage),ssex,sdept);
+	sprintf(sql, "insert into score values('%s', '%s','%s')", sno, cno, score);
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
@@ -95,7 +81,7 @@ int cgiMain()
 		return -1;
 	}
 
-	fprintf(cgiOut, "add student ok!\n");
+	fprintf(cgiOut, "add 成绩 ok!\n");
 	mysql_close(db);
 	return 0;
 }

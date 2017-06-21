@@ -72,7 +72,7 @@ int cgiMain()
 	}
 
 
-	sprintf(sql, "update information set sname='%s', sage= %d,ssex='%s',sdept='%s' where sno = %d ", sname, atoi(sage), ssex,sdept,atoi(sno));
+	sprintf(sql, "update information set sname='%s', sage= '%s',ssex='%s',sdept='%s' where sno = '%s' ", sname, sage, ssex,sdept,sno);
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
