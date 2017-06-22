@@ -4,7 +4,7 @@ markdown
 ### 技术文档
 
 * [mysql的安装](mysql安装.md)
-* [atmo](Atmo.md)
+* [atom](Atom.md)
 * [cgi](cgi.md)
 
 ### 课程设计
