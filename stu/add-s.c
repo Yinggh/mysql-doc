@@ -60,7 +60,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table score(cno char(9),cno char(9),score smallint,primary key(sno,cno),foreign key(sno)peferences information(sno),foreigy key(cno)references school(cno)");
+	strcpy(sql, "create table score(cno char(9),cno char(9),score smallint,primary key(sno,cno),foreign key(sno)peferences information(sno),foreign key(cno)references school(cno)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)
