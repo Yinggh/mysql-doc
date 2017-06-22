@@ -5,7 +5,7 @@ markdown
 
 * [mysql的安装](mysql安装.md)
 * [atmo](Atmo.md)
-* [cgi](cji.md)
+* [cgi](cgi.md)
 
 ### 课程设计
 
