@@ -6,7 +6,7 @@ markdown
 * [mysql的安装](mysql安装.md)
 * [atom](Atom.md)
 * [cgi](cgi.md)
-
+* [github](github.md)
 ### 课程设计
 
 * [关系型数据库](stu)
